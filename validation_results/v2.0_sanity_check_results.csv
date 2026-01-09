@@ -1,0 +1,61 @@
+Check_ID,Check_Name,Violations,Status
+SANITY-001,No Funded Loan Without Approval,0,PASS
+SANITY-002,No Approval Without Credit Report,0,PASS
+SANITY-003,No Approval Without Fraud Check,0,PASS
+SANITY-004,No Payment Without Funded Loan,0,PASS
+SANITY-005,No Loan Without Application,0,PASS
+SANITY-006,No Credit Report Without Application,0,PASS
+SANITY-007,No Declined in Loan Tape,0,PASS
+SANITY-008,No Pending in Loan Tape,0,PASS
+SANITY-009,No Payments After Payoff,0,PASS
+SANITY-010,No Payments After Chargeoff,0,PASS
+SANITY-011,No Delinquent Without Missed Payments,0,PASS
+SANITY-012,No CURRENT With DPD > 0,0,PASS
+SANITY-013,No Balance on Paid Off Loans,0,PASS
+SANITY-014,Chargeoff Requires 120+ DPD,0,PASS
+SANITY-015,DPD Matches Delinquency Status,0,PASS
+SANITY-016,Loan Status Valid Enum,0,PASS
+SANITY-017,Payment Status Valid Enum,0,PASS
+SANITY-018,No Future Snapshot Dates,-1,"SKIP: cannot compare 'date/datetime/time' to a string value (create native python { 'date', 'datetime', 't"
+SANITY-019,No Future Payment Dates,-1,"SKIP: cannot compare 'date/datetime/time' to a string value (create native python { 'date', 'datetime', 't"
+SANITY-020,Funding Date ≤ First Payment Date,-1,"SKIP: unable to find column ""funding_date""; valid columns: [""loan_id"", ""snapshot_date"", ""application_id"", "
+SANITY-021,No Payment Before Funding,-1,"SKIP: unable to find column ""funding_date""; valid columns: [""loan_id"", ""snapshot_date"", ""application_id"", "
+SANITY-022,Decision Date ≤ Funding Date,-1,"SKIP: unable to find column ""funding_date""; valid columns: [""loan_id"", ""snapshot_date"", ""application_id"", "
+SANITY-023,Snapshot Dates Sequential,0,PASS
+SANITY-024,No Negative Principal Balance,0,PASS
+SANITY-025,No Negative Payment Amount,0,PASS
+SANITY-026,Balance Not Exceeding Original,0,PASS
+SANITY-027,Total Payments Not Exceeding 3x,0,PASS
+SANITY-028,Interest Rate in Valid Range (0.01-0.40),-1,"SKIP: unable to find column ""interest_rate""; valid columns: [""loan_id"", ""snapshot_date"", ""application_id"","
+SANITY-029,Payment Components Sum to Total,0,PASS
+SANITY-030,Principal Paid ≤ Balance Before Payment,-1,"SKIP: unable to find column ""snapshot_date""; valid columns: [""payment_id"", ""loan_id"", ""application_id"", ""c"
+SANITY-031,Loan Term in Valid Range (6-360 months),-1,"SKIP: unable to find column ""original_loan_term""; valid columns: [""loan_id"", ""snapshot_date"", ""application"
+SANITY-032,Loan Amount > 0,0,PASS
+SANITY-033,Scheduled Payment > 0 for Active Loans,-1,"SKIP: unable to find column ""scheduled_payment_amount""; valid columns: [""loan_id"", ""snapshot_date"", ""appli"
+SANITY-034,Missed Payments Have Zero Amount,0,PASS
+SANITY-035,Partial Payments 0 < Amount < Scheduled,0,PASS
+SANITY-036,Paid Status Means Full Payment,0,PASS
+SANITY-037,Interest Paid ≤ Accrued Interest,-1,"SKIP: unable to find column ""interest_accrued""; valid columns: [""payment_id"", ""loan_id"", ""application_id"","
+SANITY-038,No Principal Payment Without Interest First,-1,"SKIP: unable to find column ""interest_accrued""; valid columns: [""payment_id"", ""loan_id"", ""application_id"","
+SANITY-039,FICO Score in Valid Range (300-850),0,PASS
+SANITY-040,Open Accounts ≥ 0,0,PASS
+SANITY-041,Total Inquiries ≥ 0,-1,"SKIP: unable to find column ""inquiries_last_6mo_count""; valid columns: [""credit_report_id"", ""application_i"
+SANITY-042,Delinquent Accounts ≤ Total Accounts,0,PASS
+SANITY-043,Open Trades ≤ Total Trades,0,PASS
+SANITY-044,Revolving Utilization in Valid Range (0-2.0),0,PASS
+SANITY-045,Credit History Length ≥ 0,0,PASS
+SANITY-046,No Approval with Failed Fraud Check,-1,"SKIP: unable to find column ""fraud_check_status""; valid columns: [""application_id"", ""fraud_check_timestamp"
+SANITY-047,Identity Verification Score in Valid Range (0-100),0,PASS
+SANITY-048,Fraud Risk Score in Valid Range (0-999),-1,"SKIP: unable to find column ""fraud_risk_score""; valid columns: [""application_id"", ""fraud_check_timestamp"","
+SANITY-049,Income Verification Not Null for Approved,-1,"SKIP: unable to find column ""income_verification_status""; valid columns: [""application_id"", ""fraud_check_t"
+SANITY-050,Employment Verification Not Null for Approved,-1,"SKIP: unable to find column ""employment_verification_status""; valid columns: [""application_id"", ""fraud_che"
+SANITY-051,All Tradelines Have Valid Credit Report,-1,SKIP: datatypes of join keys don't match - `application_id`: null on left does not match `application_id`:
+SANITY-052,All Fraud Records Have Valid Application,0,PASS
+SANITY-053,All Bank Transactions Have Valid Application,0,PASS
+SANITY-054,No Resurrection After Payoff,0,PASS
+SANITY-055,No Resurrection After Chargeoff,0,PASS
+SANITY-056,Balance Can Only Decrease,0,PASS
+SANITY-057,Payments Match Loan Count,5772,FAIL
+SANITY-058,Credit Report Per Application,0,PASS
+SANITY-059,Fraud Check Per Application,0,PASS
+SANITY-060,Application PK Uniqueness,0,PASS
